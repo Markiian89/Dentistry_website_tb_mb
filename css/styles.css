@@ -111,6 +111,10 @@ body {
     line-height: normal;
 }
 
+.menu__link:hover {
+    color: #46b1de;
+}
+
 .tel {
     display: flex;
     align-items:center;
@@ -119,6 +123,8 @@ body {
 }
 
 .tel__link {
+    display: flex;
+    position: relative;
     text-decoration: none;
     color: #1B1D1F;
     text-align: center;
@@ -127,7 +133,18 @@ body {
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin-left: 5px;
+    align-items: center;
+}
+
+.tel__link::before {
+    background-position: center center;
+    background-repeat:no-repeat;
+    content: ' ';
+    display: block;
+    height: 24px;
+    width: 24px;
+    background-image: url('../img/header/Phone.png');
+    margin-right: 6px;
 }
 
 .lang__header {
@@ -148,10 +165,12 @@ body {
     padding-right: 13px;
 }
 
-.lang__header li:last-child {
-    border-left: 1px solid #000;
-    padding-right: 0;
-    padding-left: 13px;
+.lang__header li:last-child::before {
+    content:' ';
+    height: 13px;
+    background-color: black;
+    padding-left: 1px;
+    margin-right: 13px;
 }
 
 .ua__head {
@@ -611,6 +630,10 @@ h1 {
     margin: 10px 9px;
 }
 
+.button__name:focus, .button__phone:focus {
+    border: 2px solid #46B1DE;
+}
+
 .appointment__tittle {
     width: 763px;
     margin: 29px 33px 7px 25px;
@@ -795,6 +818,10 @@ footer {
     line-height: 135%;
 }
 
+.footer__link:hover {
+    color: white;
+}
+
 .lang__footer {
     display: flex;
     padding: 0;
@@ -806,16 +833,20 @@ footer {
     line-height: normal;
 }
 
+
 .lang__footer li {
     list-style: none;
     margin: 0;
     display: block;
-    padding: 0px 10px;
+    padding-right: 13px;
 }
 
-.lang__footer li:first-child {
-    border-right: 1px solid #000;
-    padding-left: 0;
+.lang__footer li:last-child::before {
+    content:' ';
+    height: 13px;
+    background-color: black;
+    padding-left: 1px;
+    margin-right: 13px;
 }
 
 .lang__footer li a {
@@ -834,6 +865,10 @@ footer {
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+}
+
+.lang__footer li:hover {
+    color:white;
 }
 
 .footer__time {
@@ -884,8 +919,7 @@ footer {
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
-    line-height: 135%;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 
 .contacts_call {
@@ -899,6 +933,26 @@ footer {
     font-style: normal;
     font-weight: 400;
     line-height: 135%;
+}
+
+.call__link::before {
+    display: block;
+    height: 28px;
+    width: 28px;
+    content: ' ';
+    background-image: url('../img/footer/call.png');
+    margin-right: 15px;
+}
+
+.call__link {
+    display: flex;
+    align-items: center;
+}
+
+.call__link span {
+    display: block;
+    position: relative;
+
 }
 
 .contacts_messengers {
@@ -928,6 +982,15 @@ footer {
     margin-bottom: 18px;
 }
 
+.contacts_instagram::before {
+    content: ' ';
+    display: block;
+    height: 27px;
+    width: 27px;
+    background-image: url('../img/footer/instagram.png');
+    margin-right: 13px;
+}
+
 .contacts_mail {
     display: flex;
     color: #FFF;
@@ -940,20 +1003,51 @@ footer {
     align-items:center;
 }
 
-.mail {
+.contacts_mail::before {
+    display: block;
+    height: 32px;
+    width: 32px;
+    content: ' ';
+    background-image: url('../img/footer/email.png');
     margin-right: 6px;
-}
-
-.call {
-    margin-right: 15px;
 }
 
 .call__link,
 .inst__link,
 .mail__link {
+    position: relative;
     text-decoration: none;
     color: #fff;
 }
+
+.inst__link::after,
+.mail__link::after {
+    content:' ';
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: white;
+    opacity: 0;
+    bottom: -4px;
+}
+
+.call__link span::after {
+    content:' ';
+    display: block;
+    position: absolute;
+    height: 2px;
+    width: 100%;
+    background-color: white;
+    opacity: 0;
+}
+
+.call__link span:hover::after,
+.inst__link:hover::after,
+.mail__link:hover::after {
+    opacity: 1;
+}
+
 
 .copyright {
     display: flex;
